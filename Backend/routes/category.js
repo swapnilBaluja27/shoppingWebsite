@@ -11,6 +11,7 @@ router.param("categoryId",getCategoryById);
 router.get("/category/:categoryId",getCategory)
 router.get("/categories",getAllCategory)
 
+
 // actual routes
 router.post("/category/create/:userId",isSiginIn,isAuthenticated,isAdmin,createCategory);
 
