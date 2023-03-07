@@ -25,9 +25,13 @@ const orderSchema= new mongoose.Schema({
     address:{
         type:String,
     },
-    updated:{
-        Date
+    status:{
+        type:String,
+        default:"Received",
+        enum:["Cancelled","Delivered","Shipped","Processing","Received"]
     },
+    updated:
+        Date,
     user:{
         type:ObjectId,
         ref:"User",

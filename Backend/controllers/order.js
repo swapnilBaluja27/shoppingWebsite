@@ -27,3 +27,37 @@ exports.createOrder = (req,res)=>{
         res.json(order)
     })
 }
+
+exports.getAllOrders =(req,res)=>{
+    Order.find()
+    .populate("user","_id name")
+    .exec((err,order)=>{
+        if(err){
+            return res.status(400).json({
+                err:"order not found"
+            })
+        }
+
+        res.json(order)
+    })
+}
+
+exports.getStatus =(req,res)=>{
+
+    res.json(Order.schema.path("status").enumValues)
+}
+exports.updateStatus=(req,res)=>{
+
+Order.update(
+    {_id:req.body.orderId},
+    {$set:{status: req.body.status}},
+    (err,order)=>{
+        if(err)
+        {
+            return res.status(400).json({err:"Cann update"})
+
+        }
+        res.json(order)
+    }
+)
+}
