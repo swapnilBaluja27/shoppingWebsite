@@ -1,10 +1,13 @@
-import React from 'react'
+import React from 'react';
+import Base from "./Base";
+import {API} from "../backend"
 import "../styles.css"
 const Home = ()=>{
+  console.log(API);
     return (
-      <div>
+      <Base title="Home Page">
           <h1 className="text-white">Hi frontend</h1>
-      </div>
+      </Base>
             
         )
 }

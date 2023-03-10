@@ -1,7 +1,6 @@
 import React from 'react'
 import {Link,withRouter} from "react-router-dom"
-const Menu = ()=>{
-    return (
+const Menu = ()=> (
       <div>
           <ul className="nav nav-tabs bg-dark">
             <li className="nav-item">
@@ -13,6 +12,6 @@ const Menu = ()=>{
       </div>
             
         )
-}
+
 
 export default withRouter(Menu);
