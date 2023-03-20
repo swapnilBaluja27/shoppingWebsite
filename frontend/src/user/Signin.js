@@ -41,9 +41,9 @@ const Sigin =()=>{
         if(didRedirect){
             if(user && user.role===1)
             {
-                return <p> redirect ADMIN Page</p>
+                return <Redirect to="/admin/dashboard"/>;
             }else{
-                return <p> redirect User Page</p>
+                return <Redirect to="/user/dashboard"/>;
             }
         }
         if(isAuthenticated())
