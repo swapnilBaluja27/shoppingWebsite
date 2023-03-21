@@ -1,4 +1,3 @@
-const category = require("../models/category")
 const Category = require("../models/category")
 exports.getCategoryById = (req,res,next,id)=>{
     Category.findById(id).exec((err,cate)=>{
@@ -28,40 +27,4 @@ exports.createCategory = (req,res)=>{
         res.json(category);
     })
 
-}
-exports.getAllCategory = (req,res)=>{
-    Category.find().exec((err,items)=>{
-        if(err)
-        {
-            return res.status(400).json({
-                err:"Categroy does not exits"
-            })
-        }
-        res.json(items)
-    })
-}
-exports.updateCategory =(req,res)=>{
-    const category= req.category;
-    category.name = req.body.name;
-    category.save((err,updatedCategory)=>{
-        if(err){
-            return res.status(400).json({
-                err:"failed"
-            })
-        }
-        res.json(updatedCategory)
-    })
-}
-exports.removeCategory = (req,res)=>{
-    const category = req.category;
-    category.remove((err,category)=>{
-        if(err){
-            return res.status(400).json({
-                err:"failed"
-            })
-        }
-        res.json({
-            message:"Succesfully deleted"
-        })
-    })
 }
